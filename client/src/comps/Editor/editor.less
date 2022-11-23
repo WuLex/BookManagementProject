@@ -1,0 +1,45 @@
+.an-editor {
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+
+.an-editor-content {
+  box-sizing: border-box;
+  height: 300px;
+  outline: 0;
+  overflow-y: auto;
+  padding: 6px 12px;
+  blockquote {
+    display: block;
+    border-left: 5px solid #e5e7e9;
+    padding: 10px 15px;
+    background-color: #f5f7f9;
+  }
+  blockquote p:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.an-editor-actionbar {
+  border-bottom: 1px solid #eee;
+}
+
+.an-editor-button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  min-width: 30px;
+  padding: 5px 10px;
+  vertical-align: bottom;
+  color: rgba(0, 0, 0, 0.66);
+  &:hover {
+    background-color: #f5f7f9;
+  }
+}
+
+.an-editor-button-selected {
+  background-color: #f5f7f9;
+}

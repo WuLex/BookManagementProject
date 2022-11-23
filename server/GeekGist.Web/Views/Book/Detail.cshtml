@@ -1,0 +1,89 @@
+@model BookDto
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["Description"] = Model.Intro;
+    ViewData["OgType"] = "article";
+}
+
+<div class="bg-white p-5">
+    <div class="text-center">
+        <h1 class="display-6">@Model.Title</h1>
+        @if (!string.IsNullOrEmpty(Model.Subtitle))
+        {
+            <h2 class="lead">@Model.Subtitle</h2>
+        }
+        <div class="mt-4" style="font-size: 14px; color: rgba(0, 0, 0, 0.6)">
+            <span>作者:</span>
+            <span>@Model.Author</span>
+            <span class="me-2"></span>
+            <span>出版年月:</span>
+            <span>@Model.PubDate.ToString("yyyy-MM")</span>
+            <span class="me-2"></span>
+            <span>标签:</span>
+            <span>
+                @for (var i = 0; i < Model.Tags.Count; i++)
+                {
+                    <a asp-controller="Book" asp-action="Index" asp-route-tid="@Model.Tags[i].Id" style="color: inherit">@Model.Tags[i].Name</a>
+                    if (i != Model.Tags.Count - 1)
+                    {
+                        <span>/</span>
+                    }
+                }
+            </span>
+        </div>
+        <img class="rounded my-4" alt="@Model.Title" src="@UrlUtil.Image(Model.Cover, ImageSize.MD)"/>
+    </div>
+    <div class="book-intro">
+        @Html.Raw(Model.Intro)
+    </div>
+    <div class="book-intro-toggle hidden">
+        <button class="btn btn-link">显示更多</button>
+    </div>
+    <div class="border-top pt-4 mt-4">
+        <div class="mb-2">
+            @if (!string.IsNullOrEmpty(Model.OrgUrl))
+            {
+                <span>官方链接：</span>
+                <a href="@Model.OrgUrl" target="_blank">@UrlUtil.Domain(Model.OrgUrl)</a>
+            }
+        </div>
+        <div>
+            <span>下载地址：</span>
+            <a href="@Model.FetchUrl" target="_blank">@Model.Formats 下载</a>
+            @if (!string.IsNullOrEmpty(Model.FetchCode))
+            {
+                <span class="ms-3">提取码：@Model.FetchCode</span>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function() {
+            console.log(111)
+            var contentEl = document.querySelector('.book-intro');
+            var toggleEl = document.querySelector('.book-intro-toggle');
+            var toggleBtn = document.querySelector('.book-intro-toggle > button');
+
+            function isOverflow(element) {
+                console.log(element.scrollHeight, element.clientHeight)
+                return element.scrollHeight > element.clientHeight;
+            }
+
+            function toggleExpand() {
+                contentEl.classList.toggle('expand');
+                if (contentEl.classList.contains('expand')) {
+                    toggleBtn.innerHTML = '收起';
+                } else {
+                    toggleBtn.innerHTML = '显示更多';
+                }
+            }
+
+            if (isOverflow(contentEl)) {
+                toggleEl.classList.remove('hidden');
+                toggleBtn.addEventListener('click', toggleExpand);
+            }
+        })();
+    </script>
+}

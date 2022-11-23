@@ -1,0 +1,199 @@
+/*****************************
+ * reset
+ *****************************/
+
+html, body {
+    position: relative;
+    min-height: 100vh;
+}
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei";
+    background: #f5f7f9;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+::-webkit-input-placeholder {
+    color: #9aa9ba !important;
+}
+
+/*****************************
+ * bootstrap reset
+ *****************************/
+.btn {
+    white-space: nowrap;
+}
+
+/*****************************
+ * utilities
+ *****************************/
+
+.ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.lift {
+    -webkit-transition: box-shadow .25s ease,-webkit-transform .25s ease;
+    transition: box-shadow .25s ease,-webkit-transform .25s ease;
+    transition: box-shadow .25s ease,transform .25s ease;
+    transition: box-shadow .25s ease,transform .25s ease,-webkit-transform .25s ease;
+}
+
+.lift:focus, .lift:hover {
+    box-shadow: 0 1rem 2.5rem rgba(22,28,45,.1),0 .5rem 1rem -.75rem rgba(22,28,45,.1) !important;
+    -webkit-transform: translate3d(0,-3px,0);
+    transform: translate3d(0,-3px,0);
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-sm .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+/*****************************
+ * site
+ *****************************/
+
+#header {
+}
+
+#main {
+    min-height: calc(100vh - 135px);
+}
+
+#footer {
+    font-size: 13px;
+    border-top: 1px solid #e9f1f4;
+    padding: 15px 0;
+    text-align: justify;
+    background: #f1f4f8;
+}
+
+.navbar input[type='search'] {
+    min-width: 220px;
+}
+
+@media (min-width: 768px) {
+    .navbar input[type='search'] {
+        min-width: 220px;
+        transition: .2s ease-in-out;
+        transition-property: min-width;
+    }
+
+    .navbar input[type='search']:focus {
+        min-width: 320px !important;
+    }
+}
+
+.book-list .card {
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s linear;
+}
+
+.book-list .card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, -2px, 0);
+}
+
+.book-list .card img {
+    height: 160px;
+}
+
+.book-list .card-title {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #506690;
+}
+
+.book-list .card-title a {
+    color: inherit;
+}
+
+.pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.pager .pagination {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .pager {
+        flex-direction: column;
+    }
+
+    .pager .pagination {
+        margin-top: 10px;
+    }
+}
+
+.book-detail .book-cover {
+    min-width: 225px;
+    min-height: 300px;
+    background: #9aa9ba;
+}
+
+.book-detail h3 {
+    margin-bottom: 20px;
+}
+
+.book-intro {
+    overflow: hidden;
+    max-height: 300px;
+    position: relative;
+}
+
+.book-intro.expand {
+    max-height: none;
+}
+
+.book-intro.expand ~ .book-intro-toggle {
+    background-image: none;
+}
+
+.book-intro-toggle {
+    position: relative;
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(255,255,255,0)),color-stop(70%, #fff));
+    background-image: linear-gradient(-180deg,rgba(255,255,255,0) 0%,#fff 70%);
+    margin-top: -100px;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.book-intro-toggle.hidden {
+    display: none;
+}
+
+.book-intro-toggle button {
+    text-decoration: none;
+}
+
+.tag-list {
+    display: flex;
+    gap: 50px 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tag-list a > span {
+    color: rgba(0,0,0,.8);
+}
+
+.tag-list a:hover > span {
+    color: #0d6efd;
+}
