@@ -9,5 +9,14 @@ An e-book sharing website built with .NET 6 and Vue 3 and Typecript and Ant Desg
 </div>
 
 ## 前台预览
-
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/index.png)
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/searchbook.png)
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/detail.png)
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/never.png)
 ## 后台预览
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/booklist.png)
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/category.png)
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/edit.png)
+![image](https://raw.githubusercontent.com/WuLex/UsefulPicture/main/bookshare/tags.png)
+
+
