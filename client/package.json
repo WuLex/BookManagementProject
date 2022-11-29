@@ -2,11 +2,6 @@
   "name": "geekgist",
   "version": "0.0.0",
   "license": "MIT",
-  "author": {
-    "name": "liam",
-    "email": "laim.wang@live.com",
-    "url": "https://github.com/liamwang"
-  },
   "scripts": {
     "dev": "vite --port 3000 --open",
     "build": "vite build",
