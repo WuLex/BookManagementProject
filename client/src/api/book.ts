@@ -1,5 +1,6 @@
 import http from '../utils/http'
 
+//请求http://localhost:3000/api/books?page=1&size=10,由于vite.config.ts开启了代理,会转发请求到后端
 export const getBooks = (params: object) => http.get(`books`, params)
 
 export const getBookById = (id: number) => http.get(`books/${id}`)

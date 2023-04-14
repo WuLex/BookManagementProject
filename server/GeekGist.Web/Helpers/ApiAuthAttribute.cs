@@ -21,6 +21,7 @@ public class ApiAuthAttribute : Attribute, IAuthorizationFilter, IFilterFactory
 
     public void OnAuthorization(AuthorizationFilterContext context)
     {
+        //验证是否登录
         if (!context.HttpContext.User.Identity.IsAuthenticated)
         {
             context.Result = new UnauthorizedResult();

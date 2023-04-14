@@ -20,7 +20,9 @@ const errorMap: Record<string, string> = {
 }
 
 const handleError = (code: number, message?: string | undefined) => {
+  //后端返回401,说明用户未登录
   if (code === 401) {
+    //跳转到http://localhost:3000/account/login,由于代理跳转http://localhost:5000/account/login，输出后端mvc的Login.cshtml页面
     location.href = import.meta.env.VITE_LOGIN_URL
     return
   }
@@ -66,7 +68,8 @@ class Http {
         }
       }
       throw handleError(response.status)
-    } catch (e) {
+    } 
+    catch (e) {
       Message.error(e instanceof RequestError ? e.message : '请求出错')
       throw e
     }
@@ -94,6 +97,7 @@ class Http {
   }
 }
 
+//传入base地址:/api/
 const http = Http.getInstance(import.meta.env.VITE_BASE_API_URL)
 
 export default http

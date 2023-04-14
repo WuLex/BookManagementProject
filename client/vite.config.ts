@@ -73,15 +73,25 @@ const stylePlugin = styleImport({
 
 export default defineConfig({
   plugins: [vue(), vueJsx(), stylePlugin],
-  base: '/admin/',
+  base: '/admin/',  //前端地址
   publicDir: 'client/public',
   build: {
     outDir: '../build/wwwroot/admin',
   },
   server: {
     proxy: {
-      '^/(?!admin)': 'http://localhost:5000',
-      '^/api': 'http://localhost:5000/api',
+      //表示匹配以斜杠 / 开头且不包含字符串 "admin" 的所有请求地址。
+      //如果一个请求地址满足这个正则，它将被代理到 http://localhost:5000 这个后台地址。
+      //如果有以下字符串：
+      //"user1"
+      //"user2"
+      //"admin1"
+      //"guest"
+      //那么使用该正则表达式匹配后，将会匹配到 "user1", "user2", 和 "guest" 这三个字符串，而 "admin1" 则不会被匹配到。
+      '^/(?!admin)': 'http://localhost:5000', 
+      //它表示匹配以斜杠 /api 开头的所有请求地址。
+      //如果一个请求地址满足这个正则，它将被代理到 http://localhost:5000/api 这个后台 API 地址。
+      '^/api': 'http://localhost:5000/api', //后台api
     },
   },
   css: {
